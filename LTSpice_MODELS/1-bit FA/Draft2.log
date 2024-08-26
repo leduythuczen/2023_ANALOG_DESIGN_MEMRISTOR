@@ -1,0 +1,21 @@
+Circuit: * D:\HCMUT\Project\Combinational Logic Circuit Study\Design of Memristor-Based Combinational Logic Circuits_Verifying\LTSpice\1-bit FA\Draft2.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Thu Jul 06 19:04:43 2023
+Total elapsed time: 0.159 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 14118
+traniter = 14115
+tranpoints = 3412
+accept = 2596
+rejected = 816
+matrix size = 7
+fillins = 0
+solver = Normal
+Matrix Compiler1: 250 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: 515 bytes object code size  0.1/0.2/[0.1]
+

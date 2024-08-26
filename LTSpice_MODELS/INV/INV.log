@@ -1,0 +1,24 @@
+Circuit: * D:\HCMUT\Project\New folder\Design of Memristor-Based Combinational Logic Circuits_Verifying\LTSpice\INV\INV.asc
+
+WARNING: Node NC_01 is floating and connected to current source G:U2:X.  It's .op solution is defined solely by a .ic statement.
+
+Instance "m1": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration for .op point succeeded.
+
+Date: Wed Jul 05 00:47:00 2023
+Total elapsed time: 0.197 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 20853
+traniter = 20848
+tranpoints = 10383
+accept = 10352
+rejected = 31
+matrix size = 6
+fillins = 0
+solver = Normal
+Matrix Compiler1: 182 bytes object code size  0.1/0.0/[0.0]
+Matrix Compiler2: off  [0.0]/0.0/0.1
+

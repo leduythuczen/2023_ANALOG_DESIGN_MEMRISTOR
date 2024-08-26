@@ -1,0 +1,69 @@
+* Some meas 
+.param VDD = 1.8
+
+* Find Voutmax and Voutmin at V(Y0)
+.measure Voutmax_Y0 MAX V(Y0)
+.measure Voutmin_Y0 MIN V(Y0)
+
+* Find Voutmax and Voutmin at V(Y1)
+.measure Voutmax_Y1 MAX V(Y1)
+.measure Voutmin_Y1 MIN V(Y1)
+
+* Find Voutmax and Voutmin at V(Y2)
+.measure Voutmax_Y2 MAX V(Y2)
+.measure Voutmin_Y2 MIN V(Y2)
+
+*==============================================
+
+* Falling time of V(Y0)
+.measure tfall_Y0
++TRIG V(Y0) VAL = '0.8*VDD' TD=420m FALL=1
++TARG V(Y0) VAL = '0.2*VDD' TD=420m FALL=1
+
+* Rising time of V(Y0)
+.measure trise_Y0
++TRIG V(Y0) VAL = '0.2*VDD' TD=420m RISE=1
++TARG V(Y0) VAL = '0.8*VDD' TD=420m RISE=1
+*-----------------------------------------------
+* Falling time of V(Y1)
+.measure tfall_Y1
++TRIG V(Y1) VAL = '0.8*VDD' TD=240m FALL=2
++TARG V(Y1) VAL = '0.2*VDD' TD=240m FALL=2
+
+* Rising time of V(Y1)
+.measure trise_Y1
++TRIG V(Y1) VAL = '0.2*VDD' TD=240m RISE=2
++TARG V(Y1) VAL = '0.8*VDD' TD=240m RISE=2
+*-----------------------------------------------
+* Falling time of V(Y2)
+.measure tfall_Y2
++TRIG V(Y2) VAL = '0.8*VDD' TD=60m FALL=1
++TARG V(Y2) VAL = '0.2*VDD' TD=60m FALL=1
+
+* Rising time of V(Y2)
+.measure trise_Y2
++TRIG V(Y2) VAL = '0.2*VDD' TD=60m RISE=1
++TARG V(Y2) VAL = '0.8*VDD' TD=60m RISE=1
+*-----------------------------------------------
+* Delay 
+.measure tdelay PARAM 'max(trise_Y0, tfall_Y0, trise_Y1, tfall_Y1, trise_Y2, tfall_Y2)'
+
+*===============================================
+
+* Falling propagation delay 
+.measure tpdf 
++TRIG V(A)  VAL = '0.8*VDD' RISE=1
++TARG V(Y) VAL = '0.2*VDD' FALL=1
+
+* Rising propagation delay 
+.measure tpdr
++TRIG V(A)  VAL = '0.2*VDD' FALL=1
++TARG V(Y) VAL = '0.8*VDD' RISE=1
+
+* Average propagation delay 
+.measure tpd PARAM '{tpdf+tpdr}/2'
+
+* Energy
+.measure TRAN I(V3) AVG
+.measure CHARGE INTEGRAL I(V3) FROM=0 TO=10MS
+.measure ENERGY PARAM='CHARGE*VDD'
